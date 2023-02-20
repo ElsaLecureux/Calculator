@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-     Coucou
+     <div className='calculator'>
+      Calculator
+     </div>
     </div>
   );
 }
