@@ -1,11 +1,68 @@
-.App {
+.App {  
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
  .calculator{
-  background-color: red;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #AEC3B0;
+  border-radius: 1rem;
   width: 18rem;
-  height: 25rem;
+  height: 29rem;
+  .screen{
+    font-family: Sensations;
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    width: 15rem;
+    height: 6rem;
+    margin: 1rem 0;
+    position: relative;
+    .screen_content{
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1rem;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #01161E;
+    }
+  }
+  .clean_container{
+    width: 100%;
+    height: 2.9rem;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    .cleaning_button{
+      font-family: Sensations;
+      height: 2.9rem;
+      width: 5rem;
+      border: none;
+      border-radius: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #EFF6E0;
+      background-color: #124559;
+    }
+  }
+  .digits-symbols_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+    .digits_button{
+      font-family: Sensations;
+      margin: 0.25rem;
+      height: 3.5rem;
+      width: 3.5rem;
+      border: none;
+      border-radius: 5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #EFF6E0;
+      background-color: #598392;
+    }
+  }
  }
 }

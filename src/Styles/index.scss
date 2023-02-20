@@ -1,0 +1,17 @@
+@use 'reset';
+@font-face {
+  font-family: 'Sensations';
+  src: local('Sensations'),
+  url("../assets/fonts/Hey\ August.ttf") format("truetype");
+}
+html{
+  font-family: Sensations;
+  height: 100vh;
+}
+body {
+ height: 100%;
+}
+#root{
+  height: 100%;
+}
+
