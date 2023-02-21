@@ -1,35 +1,45 @@
 import './App.scss';
-import arrow from '../assets/images/arrow.svg';
+import { useState } from 'react';
 
 function App() {
+  const [screenValue, setScreenValue] = useState('');
+  const addSign = (sign) => {
+    setScreenValue(screenValue + sign);
+  }
+  const addNumber = (event) => {
+    const number = Number(event);
+    setScreenValue(screenValue + number);
+  }
+  const calculation = () => {
 
+  }
   return (
     <div className="App">
      <div className='calculator'>
         <div className="screen">
-          <p className="screen_content">12</p>
+          <p className="screen_content">{screenValue}</p>
         </div>
         <div className="clean_container">
           <button className="cleaning_button">Clear</button>
           <button className="cleaning_button back_button">&lt;</button>
         </div>
         <div className="digits-symbols_container">
-          <button className="digits_button">7</button>
-          <button className="digits_button">8</button>
-          <button className="digits_button">9</button>
-          <button className="digits_button">+</button>
-          <button className="digits_button">4</button>
-          <button className="digits_button">5</button>
-          <button className="digits_button">6</button>
-          <button className="digits_button">-</button>
-          <button className="digits_button">1</button>
-          <button className="digits_button">2</button>
-          <button className="digits_button">3</button>
-          <button className="digits_button multiply_button">X</button>
-          <button className="digits_button">0</button>
-          <button className="digits_button">.</button>
-          <button className="digits_button">&#247;</button>
-          <button className="digits_button">=</button>
+          <button value="7" className="digits_button" onClick={e => addNumber(e.target.value)}>7</button>
+          <button value="8" className="digits_button" onClick={e => addNumber(e.target.value)}>8</button>
+          <button value="9" className="digits_button" onClick={e => addNumber(e.target.value)}>9</button>
+          <button value="+" className="digits_button" onClick={e => addSign(e.target.value)}>+</button>
+          <button value="4" className="digits_button" onClick={e => addNumber(e.target.value)}>4</button>
+          <button value="5" className="digits_button" onClick={e => addNumber(e.target.value)}>5</button>
+          <button value="6" className="digits_button" onClick={e => addNumber(e.target.value)}>6</button>
+          <button value="-" className="digits_button" onClick={e => addSign(e.target.value)}>-</button>
+          <button value="1" className="digits_button" onClick={e => addNumber(e.target.value)}>1</button>
+          <button value="2" className="digits_button" onClick={e => addNumber(e.target.value)}>2</button>
+          <button value="3" className="digits_button" onClick={e => addNumber(e.target.value)}>3</button>
+          <button value="*" className="digits_button" onClick={e => addSign(e.target.value)}>X</button>
+          <button value="0" className="digits_button" onClick={e => addNumber(e.target.value)}>0</button>
+          <button value="." className="digits_button" onClick={e => addSign(e.target.value)}>.</button>
+          <button value="/" className="digits_button" onClick={e => addSign(e.target.value)}>&#247;</button>
+          <button className="digits_button" onClick={calculation}>=</button>
         </div>      
      </div>
     </div>
