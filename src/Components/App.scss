@@ -12,7 +12,7 @@
   width: 18rem;
   height: 29rem;
   .screen{
-    font-family: Sensations;
+    font-family: Beltanira;
     background-color: #FFFFFF;
     border-radius: 1rem;
     width: 15rem;
@@ -35,15 +35,18 @@
     justify-content: space-around;
     margin-bottom: 1rem;
     .cleaning_button{
-      font-family: Sensations;
+      font-family: Cinemair;
       height: 2.9rem;
       width: 5rem;
       border: none;
       border-radius: 1.5rem;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: #EFF6E0;
       background-color: #124559;
+    }
+    .back_button{
+      font-size: 2.8rem;
     }
   }
   .digits-symbols_container{
@@ -52,7 +55,7 @@
     justify-content: center;
     margin-bottom: 1rem;
     .digits_button{
-      font-family: Sensations;
+      font-family: Beltanira;
       margin: 0.25rem;
       height: 3.5rem;
       width: 3.5rem;
@@ -62,6 +65,9 @@
       font-weight: 700;
       color: #EFF6E0;
       background-color: #598392;
+    }
+    .multiply_button{
+      font-size: 1.5rem;
     }
   }
  }

@@ -1,11 +1,15 @@
 @use 'reset';
 @font-face {
-  font-family: 'Sensations';
-  src: local('Sensations'),
-  url("../assets/fonts/Hey\ August.ttf") format("truetype");
+  font-family: 'Beltanira';
+  src: local('Beltanira'),
+  url("../assets/fonts/Beltanira\ Signature.otf") format("truetype");
+}
+@font-face {
+  font-family: 'Cinemair';
+  src: local('Cinemair'),
+  url("../assets/fonts/Cinemair\ Regular.ttf") format("truetype");
 }
 html{
-  font-family: Sensations;
   height: 100vh;
 }
 body {
