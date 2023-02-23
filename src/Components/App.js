@@ -1,54 +1,83 @@
 import './App.scss';
 import { useState } from 'react';
+import classNames from 'classnames';
 
+//TODO add no more than 7 digits, CSS when too big?, 2lines, no more than 1 operator?
 function App() {
+  const [number,setNumber] = useState('');
   const [screenValue, setScreenValue] = useState('');
   const [operator, setOperator] = useState('');
   const [firstNumber, setFirstNumber] = useState(0);
   const [secondNumber, setSecondNumber] = useState(0);
+  //const[smaller, setSmaller] = useState(false);
   
-
-  const addSign = (value) => {
-    setOperator(value)
-    setScreenValue(screenValue + value);
+    const addSign = (value) => {
+      if(operator === ''){
+        setNumber('');
+        setOperator(value)
+        setScreenValue(screenValue + value);
+      } else {
+        alert('only one operator');
+      }
   }
   const addNumber = (value) => {
     if (operator === '') {
-      setFirstNumber(Number(firstNumber + value));
-      console.log(firstNumber);
-    } else {
+        setFirstNumber(Number(firstNumber + value));
+        setNumber(number + value);
+    } else {      
       setSecondNumber(Number(secondNumber + value));
+      setNumber(number + value);
     }
     setScreenValue(screenValue + value);
   }
-  const calculation = () => {
+  const calculation = (value) => {
+    setScreenValue(screenValue + value);
     const calc = operator;
+    let result = 0;
     switch(calc) {
       case '+':
-        const result = firstNumber + secondNumber;
-        setScreenValue(result);
+        result = firstNumber + secondNumber;
+        //console.log('result', result)
+        //console.log('firstNumber', firstNumber)
+        //console.log('secondNumber', secondNumber)
+        setNumber(result);
         break;
       case '-':
-        console.log('-');
+        //console.log('-');
+        result = firstNumber - secondNumber;
+        setNumber(result);
         break;
       case 'X':
-        console.log('X');
+        //console.log('X');
+        result = firstNumber * secondNumber;
+        setNumber(result);
+        /*if(number.length > 8) {
+          setSmaller(true);
+        }*/
         break;
-      case '&#247;':
-        console.log('&#247;');
+      case '/':
+        //console.log('/');
+        result = firstNumber / secondNumber;
+        setNumber(result);
         break;
         default:
           console.log('no Math')
     }
   }
+  
   const clearAll = () => {
     setScreenValue('');
+    setFirstNumber(0);
+    setOperator('');
+    setSecondNumber(0);
+    setNumber('');
   }
   return (
     <div className="App">
      <div className='calculator'>
         <div className="screen">
-          <p className="screen_content">{screenValue}</p>
+        <p className="screen_content_top">{screenValue}</p>
+        <p className={classNames("screen_content_bottom",/*{smaller}*/)}>{number}</p>
         </div>
         <div className="clean_container">
           <button className="cleaning_button" onClick={clearAll}>Clear</button>
@@ -69,8 +98,8 @@ function App() {
           <button value="X" className="digits_button" onClick={e => addSign(e.target.value)}>X</button>
           <button value="0" className="digits_button" onClick={e => addNumber(e.target.value)}>0</button>
           <button value="." className="digits_button" onClick={e => addSign(e.target.value)}>.</button>
-          <button value="&#247;" className="digits_button" onClick={e => addSign(e.target.value)}>&#247;</button>
-          <button className="digits_button" onClick={calculation}>=</button>
+          <button value="/" className="digits_button" onClick={e => addSign(e.target.value)}>&#247;</button>
+          <button value="=" className="digits_button" onClick={e => calculation(e.target.value)}>=</button>
         </div>      
      </div>
     </div>

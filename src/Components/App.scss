@@ -11,7 +11,7 @@
   border-radius: 1rem;
   width: 18rem;
   height: 29rem;
-  .screen{
+  .screen{    
     font-family: Beltanira;
     background-color: #FFFFFF;
     border-radius: 1rem;
@@ -19,13 +19,24 @@
     height: 6rem;
     margin: 1rem 0;
     position: relative;
-    .screen_content{
+    .screen_content_top{
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #b3bcbf;
+    }
+    .screen_content_bottom{
       position: absolute;
       bottom: 0.5rem;
       right: 1rem;
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: 700;
       color: #01161E;
+    }
+    .smaller{
+      font-size: 2.2rem;
     }
   }
   .clean_container{
