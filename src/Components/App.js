@@ -1,15 +1,19 @@
 import './App.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
-//TODO CSS when too big?, no more than one operator look into
+//TODO alert for one operator & only 6digits,
+//TODO more than one operator
+//TODO button before
+//TODO button for '.'
 function App() {
   const [number,setNumber] = useState('');
   const [screenValue, setScreenValue] = useState('');
   const [operator, setOperator] = useState('');
   const [firstNumber, setFirstNumber] = useState(0);
   const [secondNumber, setSecondNumber] = useState(0);
-  //const[smaller, setSmaller] = useState(false);
+  const [smaller, setSmaller] = useState(false);
+  const [alertOn, setAlertOn] = useState(false);
   
     const addSign = (value) => {
       if(operator === ''){
@@ -17,49 +21,41 @@ function App() {
         setOperator(value)
         setScreenValue(screenValue + value);
       } else {
-        alert('only one operator');
+        setAlertOn(true);
       }
   }
   const addNumber = (value) => {
-    if (operator === '' && number.length < 7 ) {
+    if (operator === '' && number.length < 6 ) {
         setFirstNumber(Number(firstNumber + value));
         setNumber(number + value);
         setScreenValue(screenValue + value);
-    } else if (number.length < 7) {      
+    } else if (number.length < 6) {      
       setSecondNumber(Number(secondNumber + value));
       setNumber(number + value);
       setScreenValue(screenValue + value);
+    } else {
+      setAlertOn(true);
     }
   }
   const calculation = (value) => {
     setScreenValue(screenValue + value);
-    const calc = operator;
     let result = 0;
-    switch(calc) {
+    switch(operator) {
       case '+':
         result = firstNumber + secondNumber;
-        //console.log('result', result)
-        //console.log('firstNumber', firstNumber)
-        //console.log('secondNumber', secondNumber)
-        setNumber(result);
+        setNumber(result.toString());
         break;
       case '-':
-        //console.log('-');
         result = firstNumber - secondNumber;
-        setNumber(result);
+        setNumber(result.toString());
         break;
       case 'X':
-        //console.log('X');
         result = firstNumber * secondNumber;
-        setNumber(result);
-        /*if(number.length > 8) {
-          setSmaller(true);
-        }*/
+        setNumber(result.toString());
         break;
       case '/':
-        //console.log('/');
         result = firstNumber / secondNumber;
-        setNumber(result);
+        setNumber(result.toString());
         break;
         default:
           console.log('no Math')
@@ -72,13 +68,22 @@ function App() {
     setOperator('');
     setSecondNumber(0);
     setNumber('');
+    setSmaller(false);
+    setAlertOn(false);
   }
+
+  useEffect (() => {
+    if(number.length > 8 ) {
+      setSmaller(true);
+    }
+  }, [number]);
   return (
     <div className="App">
+    <div className={classNames("alert", {alertOn: alertOn})}>Only one operator || Only 6 digits max</div>
      <div className='calculator'>
         <div className="screen">
-        <p className="screen_content_top">{screenValue}</p>
-        <p className={classNames("screen_content_bottom",/*{smaller}*/)}>{number}</p>
+          <p className="screen_content_top">{screenValue}</p>
+          <p className={classNames("screen_content_bottom", {smaller: smaller})}>{number}</p>
         </div>
         <div className="clean_container">
           <button className="cleaning_button" onClick={clearAll}>Clear</button>

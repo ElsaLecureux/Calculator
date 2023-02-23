@@ -1,8 +1,24 @@
 .App {  
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  .alert {
+    display: none;
+    color: white;
+    background-color: #F55D3E;
+    border-radius: 5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    width: 30rem;
+    margin-bottom: 4rem;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  .alertOn{
+    display: block;
+  }
  .calculator{
   display: flex;
   align-items: center;
@@ -36,7 +52,7 @@
       color: #01161E;
     }
     .smaller{
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
   }
   .clean_container{
