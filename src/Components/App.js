@@ -2,7 +2,7 @@ import './App.scss';
 import { useState } from 'react';
 import classNames from 'classnames';
 
-//TODO add no more than 7 digits, CSS when too big?, 2lines, no more than 1 operator?
+//TODO CSS when too big?, no more than one operator look into
 function App() {
   const [number,setNumber] = useState('');
   const [screenValue, setScreenValue] = useState('');
@@ -21,14 +21,15 @@ function App() {
       }
   }
   const addNumber = (value) => {
-    if (operator === '') {
+    if (operator === '' && number.length < 7 ) {
         setFirstNumber(Number(firstNumber + value));
         setNumber(number + value);
-    } else {      
+        setScreenValue(screenValue + value);
+    } else if (number.length < 7) {      
       setSecondNumber(Number(secondNumber + value));
       setNumber(number + value);
+      setScreenValue(screenValue + value);
     }
-    setScreenValue(screenValue + value);
   }
   const calculation = (value) => {
     setScreenValue(screenValue + value);
