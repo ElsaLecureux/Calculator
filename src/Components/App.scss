@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #AEC3B0;
+  background-color: #F55D3E;
   border-radius: 1rem;
   width: 18rem;
   height: 29rem;
@@ -41,7 +41,7 @@
       right: 1rem;
       font-size: 1.4rem;
       font-weight: 700;
-      color: #b3bcbf;
+      color: #878E88;
     }
     .screen_content_bottom{
       position: absolute;
@@ -69,8 +69,8 @@
       border-radius: 1.5rem;
       font-size: 1.5rem;
       font-weight: 700;
-      color: #EFF6E0;
-      background-color: #124559;
+      color: #878E88;
+      background-color: #FFFFFF;
     }
     .back_button{
       font-size: 2.8rem;
@@ -81,7 +81,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 1rem;
-    .digits_button{
+      .operation_buttons{
       font-family: Beltanira;
       margin: 0.25rem;
       height: 3.5rem;
@@ -90,8 +90,12 @@
       border-radius: 5rem;
       font-size: 2rem;
       font-weight: 700;
-      color: #EFF6E0;
-      background-color: #598392;
+      color: #FFFFFF;
+      background-color: #F7CB15;
+    }
+    .operator_button{
+      color: #FFFFFF;
+      background-color: #878E88;
     }
     .multiply_button{
       font-size: 1.5rem;
@@ -99,3 +103,4 @@
   }
  }
 }
+
