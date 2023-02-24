@@ -14,24 +14,31 @@ function App() {
   const [alertOn, setAlertOn] = useState(false);
   
     const addSign = (value) => {
-      /*if(operator === ''){*/
+      if(operator.length === 0){
         setNumberOnScreen('');
         setOperator([...operator, value])
         setCalculus(calculus + value);
-      /*} else {
+      } else {
         setAlertOn(true);
-      }*/
+      }
   }
-  const addNumber = (value) => {
-    if ( operator.length === 0 && numberOnScreen.length < 6 ) {
+  const addNumber = (value) => {    
+    /*if ( operator.length === 0 && numberOnScreen.length < 6 ) {
         setNumbers([numbers + value]);
         setNumberOnScreen(numberOnScreen + value);
         setCalculus(calculus + value);
-    } else if (operator.length === 1 && numberOnScreen.length < 6) {
-      const newNumber = [
-        ...numbers,
-        numbers[1] = numbers[1] + value
-      ]      
+    } else*/ if (/*operator.length >= 1 &&*/ numberOnScreen.length < 6) {
+      let newNumber = numbers.map((num, i) => {
+        if ( i === operator.length) {
+          return newNumber = [...numbers, num + value];
+        } else {
+          return newNumber = [
+            ...numbers,
+          value
+          ] 
+        }
+      })
+      console.log(newNumber);    
       setNumbers(newNumber);
       setNumberOnScreen(numberOnScreen + value);
       setCalculus(calculus + value);
@@ -43,6 +50,7 @@ function App() {
     }
   }
   const calculation = (value) => {
+    //TODO if no (find) = then add =
     setCalculus(calculus + value);
     let result = 0;
     switch(operator[0]) {
@@ -51,15 +59,15 @@ function App() {
         setNumberOnScreen(result.toString());
         break;
       case '-':
-        result = numbers[0] - numbers[1];
+        result = Number(numbers[0]) - Number(numbers[1]);
         setNumberOnScreen(result.toString());
         break;
       case 'X':
-        result = numbers[0] * numbers[1];
+        result = Number(numbers[0]) * Number(numbers[1]);
         setNumberOnScreen(result.toString());
         break;
       case '/':
-        result = numbers[0] / numbers[1];
+        result = Number(numbers[0]) / Number(numbers[1]);
         setNumberOnScreen(result.toString());
         break;
         default:
