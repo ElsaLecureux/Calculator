@@ -1,11 +1,9 @@
 import './App.scss';
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-//TODO differents Alerts
-//TODO more than one operator
-//TODO button before
-//TODO button for '.'
+//TODO to many digits when . is used and results can be too long for the screen! find a solution
 
+//Choose the type of operation to make depending of the operator used
 const calculation = (value1, value2, operator) => {
   let result = 0;
   switch(operator) {
@@ -124,7 +122,6 @@ function App() {
     setNumberOnScreen(calculateValue(numbers, operators));
   }
   // const calculation = (value) => {
-  //   //TODO if no (find) = then add =
   //   setCalculus(calculus + value);
   //   let result = 0;
   //   switch(operators[0]) {
@@ -185,7 +182,7 @@ function App() {
   console.log(operators);
   return (
     <div className="App">
-    <div className={classNames("alert", {alertOn: alertOn})}>ERROR: Only one operator & Only 6 digits max</div>
+    <div className={classNames("alert", {alertOn: alertOn})}>ERROR:Only 6 digits max</div>
      <div className='calculator'>
         <div className="screen">
           <p className="screen_content_top">{calculus}</p>
